@@ -1,0 +1,116 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="theme-color" content="#3e454c">
+
+	<title>DashBoard</title>
+	<link rel="stylesheet" href="/less/font-awesome.min.css">
+	<link rel="stylesheet" href="/less/bootstrap.min.css">
+	<link rel="stylesheet" href="/less/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="/less/bootstrap-social.css">
+	<link rel="stylesheet" href="/less/bootstrap-select.css">
+	<link rel="stylesheet" href="/less/fileinput.min.css">
+	<link rel="stylesheet" href="/less/awesome-bootstrap-checkbox.css">
+	<link rel="stylesheet" href="/less/style.css">
+
+
+</head>
+
+<body>
+<%- include("./includes/header.ejs") %>
+
+	<div class="ts-main-content">
+		<%- include("./includes/sidebar.ejs") %>
+		<div class="content-wrapper">
+			<div class="container-fluid">
+
+				<div class="row">
+					<div class="col-md-12">
+                        <br/>
+						<br/>
+						<h2 class="page-title ">Dashboard</h2>
+
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-3">
+										<div class="panel panel-default">
+											<div class="panel-body bk-primary text-light">
+												<div class="stat-panel text-center">
+
+													<div class="stat-panel-number h1 "><?php echo $count;?></div>
+													<div class="stat-panel-title text-uppercase"> Students</div>
+												</div>
+											</div>
+											<a href="manage-students.php" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="panel panel-default">
+											<div class="panel-body bk-success text-light">
+												<div class="stat-panel text-center">
+													<div class="stat-panel-number h1 "><?php echo $count1;?></div>
+													<div class="stat-panel-title text-uppercase">Total Rooms </div>
+												</div>
+											</div>
+											<a href="manage-rooms.php" class="block-anchor panel-footer text-center">See All &nbsp; <i class="fa fa-arrow-right"></i></a>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="panel panel-default">
+											<div class="panel-body bk-info text-light">
+												<div class="stat-panel text-center">
+
+													<div class="stat-panel-number h1 "><?php echo $count2;?></div>
+													<div class="stat-panel-title text-uppercase">Active Users</div>
+												</div>
+											</div>
+											<a href="manage-courses.php" class="block-anchor panel-footer text-center">See All &nbsp; <i class="fa fa-arrow-right"></i></a>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+
+
+
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Loading Scripts -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap-select.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.bootstrap.min.js"></script>
+	<script src="/js/Chart.min.js"></script>
+	<script src="/js/fileinput.js"></script>
+	<script src="/js/chartData.js"></script>
+	<script src="/js/main.js"></script>
+
+	<script>
+
+	</script>
+
+</body>
+
+
+
+
+<style> .foot{text-align: center; border: 1px solid black;}</style>
+
+</html>

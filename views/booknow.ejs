@@ -1,0 +1,365 @@
+
+<html>
+<html lang="en">
+  <head>
+    <title>Frontline Inn Hostel</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Rubik:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
+    <script src="js/main.js"></script>
+    <script type="text/javascript" >
+    // retrieves the seater of the selected room number
+    function getSeater(val){
+
+   $.ajax({
+     type:"POST",
+     url: "seater.php",
+     data:'roomid='+val,
+     success:function(data){
+       $("#seater").val(data);
+     }
+   });
+
+
+//retrieves the price of the selected room number
+   $.ajax({
+     type:"POST",
+     url:"seater.php",
+     data:'rid='+val,
+     success:function(data){
+       $("#price").val(data);
+     }
+   });
+
+    
+       
+  }
+      </script>
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
+    
+    <header role="banner">
+     
+      <nav class="navbar navbar-expand-md navbar-dark bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="/">Frontline Inn Hostel</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+            <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="rooms.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rooms</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" href="explore_room.php">explore rooms</a>
+                  <a class="dropdown-item" href="explore_room.php">1 seater room</a>
+                  <a class="dropdown-item" href="explore_room.php">2 seater rooms</a>
+                  <a class="dropdown-item" href="eplore_room.php">3 seater rooms</a>
+                </div>
+
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/contact">Contact</a>
+              </li>
+
+               <li class="nav-item cta">
+                <a class="nav-link" href="/booknow"><span>Book Now</span></a>
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="rooms.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" href="profile.php">full profile</a>
+                  <a class="dropdown-item" href="rooms.php">room_details</a>
+                  <a class="dropdown-item" href="change_password.php">change password</a>
+                  <a class="dropdown-item" href="/logout"><span class="caret"></span>logout</a>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- END header -->
+
+    <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url(images/big_image_1.jpg);">
+      <div class="container">
+        <div class="row align-items-center site-hero-inner justify-content-center">
+          <div class="col-md-12 text-center">
+
+            <div class="mb-5 element-animate">
+              <h1>Reservation</h1>
+              <p>Discover our comfortable and affordable rooms</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+    <section class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2 class="mb-5">Reservation Form</h2>
+                <form action="/booknow" method="post">
+                  <div class="row">
+                      <div class="col-sm-6 form-group">
+                          
+                          <label for="">Arrival Date</label>
+                          <div style="position: relative;">
+                            <span class="fa fa-calendar icon" style="position: absolute; right: 10px; top: 10px;"></span>
+                            <input type='text' name="arrival_date" class="form-control" id='arrival_date' />
+                          </div>
+                      </div>
+
+                      <div class="col-sm-6 form-group">
+                          
+                          <label for="">Departure Date</label>
+                          <div style="position: relative;">
+                            <span class="fa fa-calendar icon" style="position: absolute; right: 10px; top: 10px;"></span>
+                            <input type='text' class="form-control" name="departure_date" id='departure_date' />
+                          </div>
+                      </div>
+                      
+                  </div>
+
+                
+                      
+                          
+                   
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="room">Room no</label>
+                      <select name="room" id="room"class="form-control"  onChange="getSeater(this.value);" onBlur="checkAvailability()" > 
+                        <option value="">select rooms</option>
+                          
+                
+                      </select>
+                    </div>
+                    <span id="status" class="text-center bg-warning"></span>
+                    
+
+                    <div class="col-md-12 form-group">
+                      <label for="room">Seater</label>
+                      <input type="text" class="form-control" name="seater" id="seater" readonly>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="">price</label>
+                      <input type="text" id="price" name="price" class="form-control" placeholder="" readonly>
+                    </div>
+                  </div>
+
+
+                  
+                 
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="">email</label>
+                      <input type="email" id="email" name="email" value="" class="form-control" >
+                    </div>
+                    
+                    
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="email"> StudentID No</label>
+                      <input type="text" id="regno" value=""   name="regno" class="form-control" >
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="course"> Course</label>
+                      <select name="course" class="form-control">
+                        <option value="Bsc. Medicine">Bsc. Medicine</option>
+                        <option value="Bsc. Pharmacy">Bsc. Pharmacy</option>
+                        <option value="Bsc. Computer Science">Bsc. Computer Science</option>
+                        <option value="Bsc. Biological Science">Bsc. Biological Science</option>
+                        <option value="Bsc. Environmental Science">Bsc. Environmental Science</option>
+                        <option value="Bsc. Business Administration">Bsc. Business Administration</option>
+                        <option value="Bsc. Opthometry">Bsc. Opthometry</option>
+                        <option value="Bsc. Engineering">Bsc. Engineering</option>
+                        <option value="Bsc. Architecture">Bsc. Architecture</option>
+                        <option value="Bsc. Social Science">Bsc. Social science</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="email"> First Name</label>
+                      <input type="text" id="fname" value=""   name="fname" class="form-control" readonly>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="email">Middle Name</label>
+                      <input type="text" id="mname" value="" name="mname" class="form-control" readonly>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="email">Last Name</label>
+                      <input type="text" id="lname"  value="" name="lname" class="form-control" readonly>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="">Gender</label>
+                      <input type="text" id="gender"  value="" name="gender" class="form-control" readonly>
+                    </div>
+                  </div>
+                  <?php } ?>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="email">Guardian Name</label>
+                      <input type="text" id="gname" name="gname" class="form-control " required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="email">Guardian relationship</label>
+                      <input type="text" name="grelation" id="grelation" class="form-control"  required>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="email">Guardian contact</label>
+                      <input type="gcontact" name="gcontact" id="gcontact" class="form-control" required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="email">Address</label>
+                      <input type="text" id="address"  name="address" class="form-control" required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="email">city </label>
+                      <input type="text" id="city" name="city" class="form-control" required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="">Region</label>
+                      <select name="region" class="form-control" required>
+                        <option value="Ashanti Region">Ashanti Region</option>
+                        <option value="Eastern Region">Eastern Region</option>
+                        <option value="Western Region">Western Region</option>
+                        <option value="Central Region">Central Region</option>
+                        <option value="Brong-Ahafo Region">Brong-Ahafo</option>
+                        <option value="Northern Region">Northen Region</option>
+                        <option value="Greater Accra">Greater Accra Region</option>
+                        <option value="Upper East Region">Upper East Region</option>
+                        <option value="Upper West Region">Upper West Region</option>
+                        <option value="Volta Region">Volta Region</option>
+
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <input type="submit" name="bookroom" value="Reserve Now" class="btn btn-primary">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-1"></div>
+              <div class="col-md-5">
+                <div class="media d-block room mb-0">
+              <figure>
+                <img src="/images/44inaroom.jpg" alt="Generic placeholder image" class="img-fluid">
+                <div class="overlap-text">
+                </div>
+              </figure>
+              <div class="media-body">
+                <h3 class="mt-0"><a href="explore_room.php">3 seater room</a></h3>
+                <ul class="room-specs">
+                  <li><span class="ion-ios-people-outline"></span> 3 Guests</li>
+                  <li><span class="ion-ios-crop"></span> 22 ft <sup>2</sup></li>
+                </ul>
+                <p>a nice bathroom 1 big tooled kitchen a balcony with a nice view </p>
+                <p><a href="/booknow" class="btn btn-primary btn-sm">Book Now for GH3500</a></p>
+                <p><a href="explore_room.php" class="btn btn-primary btn-sm">explore the room</a></p>
+              </div>
+              </div>
+            </div>
+              </div>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+
+   
+   
+
+    <section class="section-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/frontline.jpg);">
+      <div class="container">
+        <div class="row justify-content-center align-items-center intro">
+          <div class="col-md-9 text-center element-animate">
+            <h2>Relax and Enjoy your Academic year</h2>
+            <p class="lead mb-5">Book our rooms now and enjoy amazing time during your stay here </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+   <%- include('./includes/footer.ejs') %>
+    <!-- END footer -->
+    
+    <!-- loader -->
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+
+   <%- include('./includes/scripts.ejs') %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+
+    <script>
+      $('#arrival_date, #departure_date').datepicker({});
+    </script>
+
+    <script>
+     const checkAvailability = ()=>{
+      
+      $.ajax({
+        type:"POST",
+        url: 'check_availability.php',
+        data:'roomno='+$("#room").val(),
+        success:function(data){
+          $("#status").html(data);
+          
+        }
+      });
+
+     }
+
+      </script>
+    <script src="/javascripts/main.js"></script>
+  </body>
+</html>

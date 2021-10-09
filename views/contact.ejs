@@ -1,0 +1,106 @@
+<%- include('./includes/header.ejs') %>
+    <!-- END header -->
+
+    <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url(images/big_image_1.jpg);">
+        <div class="container">
+            <div class="row align-items-center site-hero-inner justify-content-center">
+                <div class="col-md-12 text-center">
+
+                    <div class="mb-5 element-animate">
+                        <h1>Contact Us</h1>
+                        <p> <%=title %> </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END section -->
+
+    <section class="site-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="mb-5">Contact Form</h2>
+                    <form action="/contact" method="post">
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label for="name">Name</label>
+                                <input type="text" name="name"  class="form-control ">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label for="phone">Phone</label>
+                                <input type="text" name="phone"  class="form-control ">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" class="form-control ">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label for="message">Write Message</label>
+                                <textarea name="message" class="form-control " cols="30" rows="8"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input type="submit"  name="send" value="Send Message" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <h3 class="mb-5">Message from the Porter</h3>
+                    <p class="mb-5"><img src="/images/frontline.jpg" alt="" class="img-fluid"></p>
+                    <p>Frontline Inn Hostel provides student residents with the best hostel treatment. This hostel was built with students at heart and we provide the best security. You are always safe with us. </p>
+                    <p>Feel free to air your views and thoughts on this platform. We will be at your service when you contact. Dont hesitate to contact us. And always remember to obey the laws of the hostel. Thank you. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END section -->
+
+
+
+
+
+    <section class="section-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/img_5.jpg);">
+        <div class="container">
+            <div class="row justify-content-center align-items-center intro">
+                <div class="col-md-9 text-center element-animate">
+                    <h2>Relax and Enjoy your academic year</h2>
+                    <p class="lead mb-5">Frontline is always at your service 24/7. Enjoy your stay at our hostel.</p>
+                    <div class="btn-play-wrap"><a href="https://www.youtube.com/watch?v=LWgTBNm2DPg" class="btn-play popup-vimeo "><span class="ion-ios-play"></span></a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END section -->
+
+    <%- include("./includes/footer.ejs") %>
+    <!-- END footer -->
+
+    <!-- loader -->
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+
+    <script src="/javascripts/jquery-3.2.1.min.js"></script>
+    <script src="/javascripts/jquery-migrate-3.0.0.js"></script>
+    <script src="/javascripts/popper.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/owl.carousel.min.js"></script>
+    <script src="/javascripts/jquery.waypoints.min.js"></script>
+    <script src="/javascripts/jquery.stellar.min.js"></script>
+
+    <script src="/javascripts/jquery.magnific-popup.min.js"></script>
+    <script src="/javascripts/magnific-popup-options.js"></script>
+
+    <script src="/javascripts/main.js"></script>
+</body>
+
+</html>
