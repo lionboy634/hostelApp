@@ -24,81 +24,40 @@
           <div class="col-md-6">
             <h2 class="mb-5">Registration Form</h2>
                 <form action="" method="post"  onSubmit="return valid(); ">
-                  <div class="row">
-                      <div class="col-sm-12 form-group">
-                          
-                          <label for="">FirstName</label>
-                          <div style="position: relative;">
-      
-                            <input type='text' class="form-control" id='fname' name="fname"  required/>
-                          </div>
-                      </div>
-
-                      <div class="col-sm-12 form-group">
-                          
-                          <label for="">MiddleName</label>
-                          <div style="position: relative;">
-                            
-                           <input type='text' class="form-control" name="mname" id='mname' required />
-                          </div>
-                      </div>
-                      
-                  </div>
+                  
                   <div class="row">
                     <div class="col-md-12 form-group">
-                      <label for="">LastName</label>
-                      <input type="text" name="lname"  id="lname"  class="form-control" required>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="">studentID Number</label>
-                      <input type="text" name="sid"  id="sid"  class="form-control" required>
-                    </div>
-                  </div>
-
-
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="">Gender</label>
-                      <p>
-                    <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male">
-                    <label class="form-check-label" for="inlineRadio1">MALE</label>
-                </div>
-              <div class="form-check form-check-inline">
-                     <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female">
-                     <label class="form-check-label" for="inlineRadio2">FEMALE</label>
-                </p>
-               </div>
-
-                      
-                    </div>
-                  </div>
-                    <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="room">Contact</label>
-                      <input type="text" name="contact" id="contact" class="form-control" maxlength="10" required >
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="email">Email</label>
-                      <input type="email" name="email" id="email" class="form-control" onBlur="checkAvailability(); "  required>
-                    </div>
-                    <span id="status"></span>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="">password</label>
-                      <input type="text" name="password"  id="password"  class="form-control" required>
+                      <label for="room"> FullName</label>
+                      <input type="text" name="fullname"  class="form-control" maxlength="10" required >
                     </div>
                   </div>
                   
                   <div class="row">
                     <div class="col-md-12 form-group">
-                      <label for="">confirm password</label>
-                      <input type="text" name="cpassword"  id="cpassword"  class="form-control" required>
+                      <label for="">studentID Number</label>
+                      <input type="text" name="number"   class="form-control" required>
+                    </div>
+                  </div>
+
+
+                  
+                    <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="room">email</label>
+                      <input type="email" name="email" class="form-control"  required >
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="room">phone number</label>
+                      <input type="text" name="number"  class="form-control" maxlength="10" required >
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="">password</label>
+                      <input type="password" name="password"  id="cpassword"  class="form-control" required>
                     </div>
                   </div>
                   <div class="row">

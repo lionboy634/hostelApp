@@ -95,6 +95,9 @@
                   <a class="dropdown-item" href="rooms.php">room_details</a>
                   <a class="dropdown-item" href="change_password.php">change password</a>
                   <a class="dropdown-item" href="/logout"><span class="caret"></span>logout</a>
+                  
+                 
+                  
               </li>
             </ul>
             
@@ -265,24 +268,7 @@
                       <input type="text" id="city" name="city" class="form-control" required>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="">Region</label>
-                      <select name="region" class="form-control" required>
-                        <option value="Ashanti Region">Ashanti Region</option>
-                        <option value="Eastern Region">Eastern Region</option>
-                        <option value="Western Region">Western Region</option>
-                        <option value="Central Region">Central Region</option>
-                        <option value="Brong-Ahafo Region">Brong-Ahafo</option>
-                        <option value="Northern Region">Northen Region</option>
-                        <option value="Greater Accra">Greater Accra Region</option>
-                        <option value="Upper East Region">Upper East Region</option>
-                        <option value="Upper West Region">Upper West Region</option>
-                        <option value="Volta Region">Volta Region</option>
-
-                      </select>
-                    </div>
-                  </div>
+                 
                   <div class="row">
                     <div class="col-md-6 form-group">
                       <input type="submit" name="bookroom" value="Reserve Now" class="btn btn-primary">
@@ -349,7 +335,7 @@
       
       $.ajax({
         type:"POST",
-        url: 'check_availability.php',
+        url: '/check.ejs',
         data:'roomno='+$("#room").val(),
         success:function(data){
           $("#status").html(data);

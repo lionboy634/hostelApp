@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>frontline Inn hostel rooms</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Rubik:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+	<style>
+    #map{
+		height: 700px;
+		width: 100%;
+	}
+
+    </style>
+
+	</head>
+	<body>
+		<h1 class="bg-primary text-center">FIND YOUR WAY TO FRONTLINE INN HOSTEL</h1>
+	    <div id="map">
+
+	    </div>
+
+
+    <script>
+		function initMap(){
+        var options = {
+			zoom: 13,
+			center: { lat: 	6.673175 , lng: -1.565423}
+		}
+	    var map = new google.maps.Map(document.getElementById('map'), options);
+
+		}
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-SkpfqTS42bIkKW3OgNgx-Ca7ztAxR14&callback=initMap" async defer></script>
+
+
+	</body>
+</html>

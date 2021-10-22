@@ -1,19 +1,13 @@
 const express = require("express")
 const router = express.Router()
 
+const {manage, login, editprofile}  = require("../controllers/admin")
+
 
 router.get("/logout", (req, res)=>{
     res.redirect("/admin/")
 })
 
-
-//index page
-router.get("/", (req, res)=>{
-    res.render('admin/index')
-})
-
-
-//dashboard page
 router.get("/dashboard", (req, res)=>{
     res.render("admin/dashboard")
 })
@@ -26,9 +20,24 @@ router.get("/profile", (req, res)=>{
 
 
 // user management page
-router.get("/manage", (req, res)=>{
-    res.send("management page")
+router.get("/manage-rooms", (req, res)=>{
+    res.render("admin/managerooms")
 })
+
+router.get("/create-rooms", (req, res)=>{
+    res.render("admin/create-rooms")
+})
+
+
+router.get("/manage-students", (req, res)=>{
+    res.render("admin/manage-students")
+})
+
+//index page
+router.get("/", (req, res)=>{
+    res.render('admin/index')
+})
+
 
 
 

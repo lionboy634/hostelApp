@@ -1,0 +1,120 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="theme-color" content="#3e454c">
+	<title>Manage Rooms</title>
+	<link rel="stylesheet" href="/less/font-awesome.min.css">
+	<link rel="stylesheet" href="/less/bootstrap.min.css">
+	<link rel="stylesheet" href="/less/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="/less/bootstrap-social.css">
+	<link rel="stylesheet" href="/less/bootstrap-select.css">
+	<link rel="stylesheet" href="/less/fileinput.min.css">
+	<link rel="stylesheet" href="/less/awesome-bootstrap-checkbox.css">
+	<link rel="stylesheet" href="/less/style.css">
+<script language="javascript" type="text/javascript">
+var popUpWin=0;
+function popUpWindow(URLStr, left, top, width, height)
+{
+ if(popUpWin)
+{
+if(!popUpWin.closed) popUpWin.close();
+}
+popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width='+510+',height='+430+',left='+left+', top='+top+',screenX='+left+',screenY='+top+'');
+}
+</script>
+
+</head>
+
+<body>
+	<%- include('includes/header.ejs') %>
+
+	<div class="ts-main-content">
+			<%- include('includes/sidebar.ejs')  %>
+		<div class="content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<br/>
+						<h2 class="page-title">Manage Rooms</h2>
+						<div class="panel panel-default">
+							<div class="panel-heading">All Room Details</div>
+							<div class="panel-body">
+								<table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+									<thead>
+										<tr>
+											<th>Sno.</th>
+											<th>Student Name</th>
+											<th>Reg no</th>
+											<th>Contact no </th>
+											<th>room no  </th>
+											<th>Seater </th>
+											<th>Staying From </th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tfoot>
+										<tr>
+											<th>Sno.</th>
+											<th>Student Name</th>
+											<th>Reg no</th>
+											<th>Contact no </th>
+											<th>Room no  </th>
+											<th>Seater </th>
+											<th>Staying From </th>
+											<th>Action</th>
+										</tr>
+									</tfoot>
+									<tbody>
+
+<tr><td><?></td>
+<td></td>    
+<td></td>
+<td></td>  
+<td><></td>
+<td><></td>
+<td><></td>
+<td>
+<a href="javascript:void(0);"  onClick="popUpWindow('http://localhost/hostel/admin/full-profile.php?id=<?php echo $row->id;?>');" title="View Full Details"><i class="fa fa-desktop"></i></a>&nbsp;&nbsp;
+<a href="manage-students.php?del=<?php echo $row->id;?>" title="Delete Record" onClick=""><i class="fa fa-close"></i></a></td>
+										</tr>
+									
+											
+										
+									</tbody>
+								</table>
+
+								
+							</div>
+						</div>
+
+					
+					</div>
+				</div>
+
+			
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Loading Scripts -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="js/bootstrap-select.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.bootstrap.min.js"></script>
+	<script src="/js/Chart.min.js"></script>
+	<script src="/js/fileinput.js"></script>
+	<script src="/js/chartData.js"></script>
+	<script src="/js/main.js"></script>
+
+</body>
+
+</html>
