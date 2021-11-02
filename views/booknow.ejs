@@ -18,32 +18,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
     <script src="js/main.js"></script>
     <script type="text/javascript" >
-    // retrieves the seater of the selected room number
-    function getSeater(val){
-
-   $.ajax({
-     type:"POST",
-     url: "seater.php",
-     data:'roomid='+val,
-     success:function(data){
-       $("#seater").val(data);
-     }
-   });
-
-
-//retrieves the price of the selected room number
-   $.ajax({
-     type:"POST",
-     url:"seater.php",
-     data:'rid='+val,
-     success:function(data){
-       $("#price").val(data);
-     }
-   });
-
-    
-       
-  }
       </script>
 
     <!-- Theme Style -->
@@ -52,7 +26,6 @@
   <body>
     
     <header role="banner">
-     
       <nav class="navbar navbar-expand-md navbar-dark bg-light">
         <div class="container">
           <a class="navbar-brand" href="/">Frontline Inn Hostel</a>
@@ -76,7 +49,7 @@
 
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="blog.html">Blog</a>
+                <a class="nav-link" href="/blog">Blog</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="/about">About</a>
@@ -91,12 +64,10 @@
               <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="rooms.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="profile.php">full profile</a>
-                  <a class="dropdown-item" href="rooms.php">room_details</a>
+                  <a class="dropdown-item" href="/profile">full profile</a>
+                  <a class="dropdown-item" href="/rooms">room_details</a>
                   <a class="dropdown-item" href="change_password.php">change password</a>
                   <a class="dropdown-item" href="/logout"><span class="caret"></span>logout</a>
-                  
-                 
                   
               </li>
             </ul>
@@ -107,14 +78,14 @@
     </header>
     <!-- END header -->
 
-    <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url(images/big_image_1.jpg);">
+    <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url(/images/big_image_1.jpg);">
       <div class="container">
         <div class="row align-items-center site-hero-inner justify-content-center">
           <div class="col-md-12 text-center">
 
             <div class="mb-5 element-animate">
-              <h1>Reservation</h1>
-              <p>Discover our comfortable and affordable rooms</p>
+              <h1><%= title %></h1>
+              <p><%= header %> </p>
             </div>
 
           </div>
@@ -129,72 +100,36 @@
           <div class="col-md-6">
             <h2 class="mb-5">Reservation Form</h2>
                 <form action="/booknow" method="post">
-                  <div class="row">
-                      <div class="col-sm-6 form-group">
-                          
-                          <label for="">Arrival Date</label>
-                          <div style="position: relative;">
-                            <span class="fa fa-calendar icon" style="position: absolute; right: 10px; top: 10px;"></span>
-                            <input type='text' name="arrival_date" class="form-control" id='arrival_date' />
-                          </div>
-                      </div>
-
-                      <div class="col-sm-6 form-group">
-                          
-                          <label for="">Departure Date</label>
-                          <div style="position: relative;">
-                            <span class="fa fa-calendar icon" style="position: absolute; right: 10px; top: 10px;"></span>
-                            <input type='text' class="form-control" name="departure_date" id='departure_date' />
-                          </div>
-                      </div>
-                      
-                  </div>
-
-                
-                      
-                          
-                   
+                  
                   <div class="row">
                     <div class="col-md-12 form-group">
                       <label for="room">Room no</label>
-                      <select name="room" id="room"class="form-control"  onChange="getSeater(this.value);" onBlur="checkAvailability()" > 
-                        <option value="">select rooms</option>
-                          
-                
-                      </select>
+                      <input type='text' class="form-control" value='<%= room.rnumber %>' name='rnumber' readonly />
+                         
                     </div>
                     <span id="status" class="text-center bg-warning"></span>
                     
 
                     <div class="col-md-12 form-group">
                       <label for="room">Seater</label>
-                      <input type="text" class="form-control" name="seater" id="seater" readonly>
+                      <input type="text" value="<%= room.rtype %>" class="form-control" name='rtype' readonly />
+                      <p class="text-center text-warning"> <%=number %> rooms  left</p>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12 form-group">
                       <label for="">price</label>
-                      <input type="text" id="price" name="price" class="form-control" placeholder="" readonly>
+                      <input type="text" value="<%= room.price %>" id="price" name="price" class="form-control" readonly>
                     </div>
                   </div>
-
-
-                  
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <input type="hidden" value="<%= room._id %>" id="price" name="_id" class="form-control" readonly>
+                    </div>
+                  </div>
                  
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="">email</label>
-                      <input type="email" id="email" name="email" value="" class="form-control" >
-                    </div>
-                    
-                    
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="email"> StudentID No</label>
-                      <input type="text" id="regno" value=""   name="regno" class="form-control" >
-                    </div>
-                  </div>
+                
+                  
                   <div class="row">
                     <div class="col-md-12 form-group">
                       <label for="course"> Course</label>
@@ -212,31 +147,8 @@
                       </select>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="email"> First Name</label>
-                      <input type="text" id="fname" value=""   name="fname" class="form-control" readonly>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="email">Middle Name</label>
-                      <input type="text" id="mname" value="" name="mname" class="form-control" readonly>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="email">Last Name</label>
-                      <input type="text" id="lname"  value="" name="lname" class="form-control" readonly>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="">Gender</label>
-                      <input type="text" id="gender"  value="" name="gender" class="form-control" readonly>
-                    </div>
-                  </div>
-                  <?php } ?>
+                  
+                 
                   <div class="row">
                     <div class="col-md-12 form-group">
                       <label for="email">Guardian Name</label>
@@ -262,16 +174,11 @@
                       <input type="text" id="address"  name="address" class="form-control" required>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="email">city </label>
-                      <input type="text" id="city" name="city" class="form-control" required>
-                    </div>
-                  </div>
+                  
                  
                   <div class="row">
                     <div class="col-md-6 form-group">
-                      <input type="submit" name="bookroom" value="Reserve Now" class="btn btn-primary">
+                      <input type="submit" name="bookroom" value="Reserve Now" class="btn btn-primary"  >
                     </div>
                   </div>
                 </form>
@@ -326,26 +233,6 @@
    <%- include('./includes/scripts.ejs') %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
 
-    <script>
-      $('#arrival_date, #departure_date').datepicker({});
-    </script>
-
-    <script>
-     const checkAvailability = ()=>{
-      
-      $.ajax({
-        type:"POST",
-        url: '/check.ejs',
-        data:'roomno='+$("#room").val(),
-        success:function(data){
-          $("#status").html(data);
-          
-        }
-      });
-
-     }
-
-      </script>
     <script src="/javascripts/main.js"></script>
   </body>
 </html>

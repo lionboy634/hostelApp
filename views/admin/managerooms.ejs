@@ -10,7 +10,7 @@
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	<title>Manage Rooms</title>
-	<link rel="stylesheet" href="less/font-awesome.min.css">
+	<link rel="stylesheet" href="/less/font-awesome.min.css">
 	<link rel="stylesheet" href="/less/bootstrap.min.css">
 	<link rel="stylesheet" href="/less/dataTables.bootstrap.min.css">
 	<link rel="stylesheet" href="/less/bootstrap-social.css">
@@ -21,10 +21,10 @@
 </head>
 
 <body>
-	<?php include('includes/header.php');?>
+	<%- include('./includes/header.ejs') %>
 
 	<div class="ts-main-content">
-			<?php include('includes/sidebar.php');?>
+			<%- include('./includes/sidebar.ejs') %>
 		<div class="content-wrapper">
 			<div class="container-fluid">
 				<div class="row">
@@ -37,36 +37,39 @@
 								<table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 									<thead>
 										<tr>
-											<th>Sno.</th>
+											<th>RoomId</th>
 										
 											<th>Seater</th>
 											<th>Room No.</th>
 											<th>Hostel Price </th>
 
-											<th>Posting Date  </th>
+											
 											<th>Action</th>
 										</tr>
 									</thead>
 									<tfoot>
 										<tr>
-											<th>Sno.</th>
+											<th>RoomId</th>
 											<th>Seater</th>
 											<th>Room No.</th>
 										
 											<th>Hostel Price </th>
-											<th>Posting Date  </th>
+											
 											<th>Action</th>
 										</tr>
 									</tfoot>
 									<tbody>
+									
+ <% for (var room of rooms)  { %>
+<tr><td><%= room._id  %></td>
+<td><%= room.rtype %></td>
+<td><%= room['rnumber'] %></td>
+<td><%= room['price'] %></td>
 
-<tr><td><?php echo $cnt;;?></td>
-<td><?php echo $row->seater;?></td>
-<td><?php echo $row->room_no;?></td>
-<td><?php echo $row->fees;?></td>
-<td><?php echo $row->posting_date;?></td>
-<td><a href="edit-room.php?id=<?php echo $row->id;?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
-<a href="manage-rooms.php?del=<?php echo $row->id;?>" onClick=""><i class="fa fa-close"></i></a></td>
+<td><a href="/edit-room?id=<%= room._id %> "><i class="fa fa-edit"></i>edit</a>&nbsp;&nbsp;
+	<a href="manage-rooms?del=<%= room._id %>" onClick=""><i class="fa fa-close"></i>delete</a></td>
+<% } %>
+
 										</tr>
 									<?php
 $cnt=$cnt+1;
@@ -91,15 +94,15 @@ $cnt=$cnt+1;
 	</div>
 
 	<!-- Loading Scripts -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap-select.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.dataTables.min.js"></script>
-	<script src="js/dataTables.bootstrap.min.js"></script>
-	<script src="js/Chart.min.js"></script>
-	<script src="js/fileinput.js"></script>
-	<script src="js/chartData.js"></script>
-	<script src="js/main.js"></script>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap-select.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.bootstrap.min.js"></script>
+	<script src="/js/Chart.min.js"></script>
+	<script src="/js/fileinput.js"></script>
+	<script src="/js/chartData.js"></script>
+	<script src="/js/main.js"></script>
 
 </body>
 

@@ -23,16 +23,14 @@
             <div class="form-group">
                 <input
                 type="text"
-                name="username"
+                name="email"
                 class="form-control"
-                value="<%= user.bookedby.fullname %>"
                 placeholder="username" readonly />
             </div>
             <div class="form-group">
                 <input 
-                type="text"
-                name="price",
-                value="<%= user.bookedby.email %>"
+                type="email"
+                name="price"
                 placeholder="contact"
                 class="form-control" readonly />
             </div>
@@ -40,8 +38,7 @@
                 <input 
                 type="email"
                 name="price"
-                placeholder="price",
-                value="<%= user.room.price %>"
+                placeholder="price"
                 class="form-control" readonly/>
             </div>
            
@@ -55,21 +52,22 @@
     <script>
     function makePayment() {
       FlutterwaveCheckout({
-        public_key: "FLWPUBK_TEST-8f54432d54c7399c8f8c21ef7b49c3e4-X",
-        tx_ref: "488",
-        amount: "<%= user.room.price %>",
-        currency: "GHS",
-        country: "GH",
+        public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X",
+        tx_ref: "RX1",
+        amount: 10,
+        currency: "USD",
+        country: "US",
         payment_options: " ",
-        redirect_url:  "http://localhost:5000/verify",
+        redirect_url: // specified redirect URL
+          "https://callbacks.piedpiper.com/flutterwave.aspx?is",
         meta: {
           consumer_id: 23,
           consumer_mac: "92a3-912ba-1192a",
         },
         customer: {
-          email: "<%= user.bookedby.email %>",
-          phone_number: "0557458787",
-          name: "<%= user.bookedby.fullname %>",
+          email: "cornelius@gmail.com",
+          phone_number: "08102909304",
+          name: "Flutterwave Developers",
         },
         callback: function (data) {
           console.log(data);
@@ -78,7 +76,7 @@
           // close modal
         },
         customizations: {
-          title: "FrontlineInn Hostel",
+          title: "My store",
           description: "Payment for items in cart",
           logo: "https://assets.piedpiper.com/logo.png",
         },

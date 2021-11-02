@@ -3,17 +3,31 @@ const mongoose = require("mongoose")
 const {Schema} = mongoose
 
 const bookingSchema = new Schema({
-    email: {
-        type:String,
-        ref: "User"
+    
+    
+    room:{
+        type : Schema.Types.ObjectId,
+        ref: "Room"
     },
-    name:{
-        type:String,
+     bookedby:{
+        type : Schema.Types.ObjectId,
         ref: "User"
-    },
-    price:{
-        type:Float64Array,
-        required: true
+   },
+   course: String,
+    guardian:[ {
+        name: {
+            type:String,
+        },
+        contact: {
+            type: String,
+
+        } ,
+        relationship: {
+            type: String,
+        }
+            } ],
+    address:{
+        type:String,
     },
 
     time:{
@@ -25,4 +39,4 @@ const bookingSchema = new Schema({
 
 
 
-module.exports = mongoose.model("HotelBooks", bookingSchema)
+module.exports = mongoose.model("Books", bookingSchema)

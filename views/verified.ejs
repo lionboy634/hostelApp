@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Rubik:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    
+    <div class="container form mt-5 ">
+        <div class="card ">
+            <div class="card-header">
+                <h2>payment details</h2>
+            </div>
+            <div class="card-body">
+                <div>
+                    <h2 class="text-center text-primary">Congratulations <%= info.data.customer.name %>  </h2>
+                </div>
+                <div>
+                    <p value="<%= info%>"> price: <%= info.data.amount %> </p>
+                    <p>fullName: "<%= info.data.customer.name %>" </p>
+                    <p>Time:  <%= info.data.customer.created_at %>     </p>
+                    <p>price:</p>
+                </div>
+            </div>
+            <div class="card-foot text-center anchor">
+                <a style="font-size: 1.5rem; font-style:italic; background-color: white;" href="/logout">logout</a>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/jquery-3.2.1.min.js"></script>
+    <script src="/javascripts/jquery-migrate-3.0.0.js"></script>
+    <script src="/javascripts/popper.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/owl.carousel.min.js"></script>
+    <script src="/javascripts/jquery.waypoints.min.js"></script>
+    <script src="/javascripts/jquery.stellar.min.js"></script>
+
+    <script src="/javascripts/jquery.magnific-popup.min.js"></script>
+    <script src="/javascripts/magnific-popup-options.js"></script>
+    
+    
+
+</body>
+</html>

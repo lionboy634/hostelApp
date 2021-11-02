@@ -72,18 +72,19 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 										</tr>
 									</tfoot>
 									<tbody>
-
+<% for(var book in books){  %>
 <tr><td><?></td>
-<td></td>    
-<td></td>
-<td></td>  
-<td><></td>
-<td><></td>
-<td><></td>
+<td><%= books[book]._id %></td>    
+<td><%= books[book].room %></td>
+<td><%= books[book].guardian  %></td>  
+<td><%= books[book].course  %></td>
+<td><%= books[book].address %></td>
+<td><%= books[book].time %></td>
 <td>
-<a href="javascript:void(0);"  onClick="popUpWindow('http://localhost/hostel/admin/full-profile.php?id=<?php echo $row->id;?>');" title="View Full Details"><i class="fa fa-desktop"></i></a>&nbsp;&nbsp;
+<a href="javascript:void(0);"  onClick="popUpWindow('http://localhost:5000/admin/manage-students?id=<%= books[book]._id %>');" title="View Full Details"><i class="fa fa-desktop"></i></a>&nbsp;&nbsp;
 <a href="manage-students.php?del=<?php echo $row->id;?>" title="Delete Record" onClick=""><i class="fa fa-close"></i></a></td>
 										</tr>
+										<% } %>
 									
 											
 										

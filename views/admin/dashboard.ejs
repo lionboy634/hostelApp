@@ -45,22 +45,22 @@
 											<div class="panel-body bk-primary text-light">
 												<div class="stat-panel text-center">
 
-													<div class="stat-panel-number h1 "><?php echo $count;?></div>
-													<div class="stat-panel-title text-uppercase"> Students</div>
+													<div class="stat-panel-number h1 "><%= books.length %></div>
+													<div class="stat-panel-title text-uppercase"> Residents</div>
 												</div>
 											</div>
-											<a href="manage-students.php" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
+											<a href="/admin/manage-students" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
 										</div>
 									</div>
 									<div class="col-md-3">
 										<div class="panel panel-default">
 											<div class="panel-body bk-success text-light">
 												<div class="stat-panel text-center">
-													<div class="stat-panel-number h1 "><?php echo $count1;?></div>
+													<div class="stat-panel-number h1 "> <%= rooms.length %> </div>
 													<div class="stat-panel-title text-uppercase">Total Rooms </div>
 												</div>
 											</div>
-											<a href="manage-rooms.php" class="block-anchor panel-footer text-center">See All &nbsp; <i class="fa fa-arrow-right"></i></a>
+											<a href="/admin/manage-rooms" class="block-anchor panel-footer text-center">See All &nbsp; <i class="fa fa-arrow-right"></i></a>
 										</div>
 									</div>
 									<div class="col-md-3">
@@ -68,8 +68,8 @@
 											<div class="panel-body bk-info text-light">
 												<div class="stat-panel text-center">
 
-													<div class="stat-panel-number h1 "><?php echo $count2;?></div>
-													<div class="stat-panel-title text-uppercase">Active Users</div>
+													<div class="stat-panel-number h1 "><%= users.length %></div>
+													<div class="stat-panel-title text-uppercase">Registered site users</div>
 												</div>
 											</div>
 											<a href="manage-courses.php" class="block-anchor panel-footer text-center">See All &nbsp; <i class="fa fa-arrow-right"></i></a>
